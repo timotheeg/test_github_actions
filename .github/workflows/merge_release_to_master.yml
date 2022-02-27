@@ -1,4 +1,4 @@
-name: Sync multiple branches
+name: Merge release to master
 on:
   push:
     branches:
@@ -21,6 +21,6 @@ jobs:
         uses: devmasx/merge-branch@master
         with:
           type: now
-          from_branch: relase
+          from_branch: release
           target_branch: master
           github_token: ${{ github.token }}
