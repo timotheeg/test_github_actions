@@ -2,8 +2,8 @@ name: Sync multiple branches
 on:
   push:
     branches:
-      - 'release'
-      - 'staging'
+      - release
+      - staging
 jobs:
   start-log:
     runs-on: ubuntu-latest
