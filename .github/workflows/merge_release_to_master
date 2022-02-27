@@ -8,15 +8,16 @@ jobs:
   start-log:
     runs-on: ubuntu-latest
     steps:
-      - run:
-        echo "foo bar"
+      - run: echo "foo bar"
+      - run: echo "ref: ${{ github.ref }}"
+      - run: echo "refname: ${{ github.refname }}"
 
   merge-granch:
-    if github.refname == 'release'
+    if: github.refname == 'release'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Merge release -> master
+      - name: Backport release into master
         uses: devmasx/merge-branch@master
         with:
           type: now
