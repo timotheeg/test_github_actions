@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "foo bar"
-      - run:
-        echo "ref: ${{ github.ref }}"
-      - run:
-        echo "refname: ${{ github.refname }}"
+      - run: echo "ref - ${{ github.ref }}"
+      - run: echo "refname - ${{ github.refname }}"
 
   merge-granch:
     if: github.refname == 'release'
