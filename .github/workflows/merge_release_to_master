@@ -7,8 +7,9 @@ on:
 jobs:
   start-log:
     runs-on: ubuntu-latest
-    run:
-      console.log foo bar
+    steps:
+      - run:
+        echo "foo bar"
 
   merge-granch:
     if github.refname == 'release'
