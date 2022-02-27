@@ -1,0 +1,24 @@
+name: Sync multiple branches
+on:
+  push:
+    branches:
+      - 'release'
+      - 'staging'
+jobs:
+  start-log:
+    runs-on: ubuntu-latest
+    run:
+      console.log foo bar
+
+  merge-granch:
+    if github.refname == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Merge release -> master
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: relase
+          target_branch: master
+          github_token: ${{ github.token }}
